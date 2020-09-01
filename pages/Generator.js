@@ -34,9 +34,7 @@ export default function Generator() {
 
             <Image
                 style={styles.image}
-                source={{
-                uri: uri,
-                }}
+                source={{uri: uri}}
             />
         </View> 
     )

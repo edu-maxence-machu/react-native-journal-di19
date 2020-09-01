@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Image, Button, SafeAreaView, ScrollView } from 
 import Header from './components/Header'
 import Journal from './pages/Journal'
 import Generator from './pages/Generator';
+import Login from './pages/Login';
 
 export default function App() {
 
@@ -30,7 +31,11 @@ export default function App() {
       <Header title="Journal"/>
 
       {/*<Journal data={dataJournal}/>*/}
-      <Generator/>
+      
+      {/*<Generator/>*/}
+
+
+      <Login/>
 
     </SafeAreaView>
   );
@@ -39,7 +44,5 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'flex-start',
-    justifyContent: 'flex-start',
   },
 });
