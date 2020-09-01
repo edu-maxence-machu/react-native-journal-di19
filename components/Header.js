@@ -1,11 +1,17 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native'
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native'
 
-export default function Header(){
+export default function Header(props){ // 1: Ajout des props en parametre
+
+    console.log(props); // 2: Test des props
+
+    let fulltitle = props.title + ' ' + props.user.name;
 
     return (
         <View style={styles.header}>
-            <Text style={styles.headerText}>Hello</Text>
+            <TouchableOpacity onPress={props.handleHeaderPress}>
+                <Text style={styles.headerText}>{fulltitle}</Text>
+            </TouchableOpacity>
         </View>
     )
 }

@@ -6,11 +6,26 @@ import Header from './components/Header'
 
 export default function App() {
 
+  const config = {
+    title: "Les notes de",
+    user: {
+      name: "Maxence"
+    }
+  }
+
+  function direBonjour(){
+    alert('Bonjour Maxence');
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style="auto" />
 
-      <Header/> 
+      <Header 
+      handleHeaderPress={direBonjour}
+      title={config.title}
+      user={config.user}
+      /> 
 
       <ScrollView horizontal={true} style={styles.scrollHorizontal}>
           <Text style={styles.scrollText}>Maison</Text>
