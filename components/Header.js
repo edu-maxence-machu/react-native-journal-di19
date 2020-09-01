@@ -1,17 +1,13 @@
 import React from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native'
+import {View, Text, StyleSheet} from 'react-native'
+import { StatusBar } from 'expo-status-bar';
 
-export default function Header(props){ // 1: Ajout des props en parametre
-
-    console.log(props); // 2: Test des props
-
-    let fulltitle = props.title + ' ' + props.user.name;
+export default function Header(props){
 
     return (
         <View style={styles.header}>
-            <TouchableOpacity onPress={props.handleHeaderPress}>
-                <Text style={styles.headerText}>{props.title}</Text>
-            </TouchableOpacity>
+            <StatusBar style="auto" />
+            <Text style={styles.headerText}>{props.title}</Text>
         </View>
     )
 }
@@ -30,4 +26,4 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontWeight: 'bold'
     },
-}) 
+})

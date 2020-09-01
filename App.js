@@ -1,46 +1,34 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, Image, Button, SafeAreaView, ScrollView } from 'react-native';
-
 import Header from './components/Header'
-import Journal from './pages/Journal';
+import Journal from './pages/Journal'
 
 export default function App() {
 
-  const config = {
-    title: "Les notes de",
-    user: {
-      name: "Maxence"
-    }
-  }
-
-
-  let mesNotes = [
+  const dataJournal = [
     {
-      title: 'Résumé de ma rentrée',
-      description: "Ca s'est super bien passé et Benoit est très gentil"
+      title: 'Faire les courses',
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      done: true
     },
     {
-      title: 'Résumé de ma soirée de jeudi soir',
-      description: "ERROR 500"
+      title: 'Sortir les poubelles',
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
+      done: false
+    },
+    {
+      title: 'Donner à manger au chien',
+      description: "Consectetur adipiscing elit",
+      done: true
     }
   ]
 
-  function direBonjour(){
-    alert('Bonjour Maxence');
-  }
-
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar style="auto" />
 
-      <Header 
-      handleHeaderPress={direBonjour}
-      title={config.title}
-      user={config.user}
-      /> 
+      <Header title="Journal"/>
 
-      <Journal notes={mesNotes}/>
+      <Journal data={dataJournal}/>
 
     </SafeAreaView>
   );
