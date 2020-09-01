@@ -3,7 +3,7 @@ import {View, Text, StyleSheet} from 'react-native'
 
 function Title({children, done}){
     return (
-        <Text style={styles.noteTitle}>{done && '✅'} {children}</Text>
+        <Text style={styles.noteTitle}>{done && '✅ '}{children}</Text>
     )
 }
 
@@ -47,16 +47,6 @@ export default function PreviewNote({dataNote}){
     return (
         <View style={[styles.note, additionalStyle]}>
             <View style={styles.dragDrop}/>
-
-{
-    /*
-    <Text>
-        {
-            dataNote.done ? '✅' : '𐄂'
-        }
-    </Text>
-    */
-}
 
             <View style={styles.noteTextContainer}>
                 <Title done={dataNote.done}>{dataNote.title}</Title>

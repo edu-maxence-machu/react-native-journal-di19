@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Image, Button, SafeAreaView, ScrollView } from 'react-native';
 import Header from './components/Header'
 import Journal from './pages/Journal'
+import Generator from './pages/Generator';
 
 export default function App() {
 
@@ -28,7 +29,8 @@ export default function App() {
 
       <Header title="Journal"/>
 
-      <Journal data={dataJournal}/>
+      {/*<Journal data={dataJournal}/>*/}
+      <Generator/>
 
     </SafeAreaView>
   );
