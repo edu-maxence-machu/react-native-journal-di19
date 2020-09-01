@@ -35,17 +35,18 @@ export default function Login(props){
     }
 
     function checkAndLogIn(){
+        /*
         if(!checkPassword(password)){
             alert('Veuillez entrer un mot de passe correct')
         } else if(!checkEmail(email)){
             alert('Veuillez entrer une adresse email valide')
-        } else {
-            if(email === 'contact@entreprise.com' && password === '$Motdepasse2'){
+        } else {*/
+            if(email === 'admin' && password === 'admin'){
                 props.login();
             } else {
                 alert('Utilisateur introuvable')
             }
-        }
+       // }
     }
 
     return(

@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View, Image, Button, SafeAreaView, ScrollView } from 'react-native';
 import Header from './components/Header'
 import Journal from './pages/Journal'
 import Generator from './pages/Generator';
 import Login from './pages/Login';
+import MesComptes from './pages/MesComptes';
 
 export default function App() {
+
+
+  const [navigation, setNavigation] = useState('Login')
 
   const dataJournal = [
     {
@@ -28,14 +32,17 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
 
-      <Header title="Journal"/>
+      <Header title={navigation}/>
 
-      {/*<Journal data={dataJournal}/>*/}
+      {navigation === 'Journal' && <Journal data={dataJournal}/>}
       
       {/*<Generator/>*/}
 
+      {
+        navigation === 'Login' && <Login login={() => setNavigation('Journal')}/>
+      }
 
-      <Login/>
+      {/*<MesComptes/>*/}
 
     </SafeAreaView>
   );
