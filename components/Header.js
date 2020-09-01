@@ -10,7 +10,7 @@ export default function Header(props){ // 1: Ajout des props en parametre
     return (
         <View style={styles.header}>
             <TouchableOpacity onPress={props.handleHeaderPress}>
-                <Text style={styles.headerText}>{fulltitle}</Text>
+                <Text style={styles.headerText}>{props.title}</Text>
             </TouchableOpacity>
         </View>
     )
