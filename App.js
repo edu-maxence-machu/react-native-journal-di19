@@ -5,8 +5,8 @@ import Journal from './pages/Journal'
 import BankAccount from './pages/BankAccount'
 import AddForm from './pages/AddForm'
 import Login from './pages/Login'
+import ListeCourses from './pages/ListeCourses'
 import TutorialImage from './pages/TutorialImage';
-import GestionPage from './pages/GestionPage';
 
 export default function App() {
 
@@ -30,7 +30,7 @@ export default function App() {
   Add to state ([dataJournal])
   */
   function addToJournal(title, desc){
-  
+    
     setDataJournal([
       ...dataJournal, {
         title: title,
@@ -53,7 +53,8 @@ export default function App() {
 
       <MyHeader title={page}/>
 
-      { page === 'Journal' && <Journal data={dataJournal} navigate={navigate}/> }
+      { page === 'Journal' && 
+      <Journal data={dataJournal} navigate={navigate}/> }
 
       { page === 'BankAccount' && <BankAccount />}
 
@@ -61,13 +62,18 @@ export default function App() {
 
       { page === 'Tutorial' && <TutorialImage/>}
 
-      { page === 'GestionPage' && <GestionPage/>}
+      { page === 'Courses' && <ListeCourses/>}
       
       <View style={styles.topMenu}>
         <Button 
           title="Bank" 
           color={page === "BankAccount" ? "green" : 'grey'}
           onPress={() => navigate('BankAccount')}
+          />
+        <Button 
+          title="Courses" 
+          color={page === "Courses" ? "green" : 'grey'}
+          onPress={() => navigate('Courses')}
           />
 
         <Button 

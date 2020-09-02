@@ -1,9 +1,56 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {View, Text, StyleSheet, ScrollView, TouchableOpacity} from 'react-native'
+import AsyncStorage from '@react-native-community/async-storage';
 
 export default function BankAccount(){
 
     const [bank, setBank] = useState(0);
+    const [history,setHistory] = useState([]);
+
+    /*
+        mount et update
+    */
+    useEffect(() => {
+        console.log('Je suis mis à jour');
+    })
+
+    /* Mount */
+    useEffect(() => {
+        console.log('Je suis crée');
+
+        /*
+            On va chercher la valeur au chargement = [];
+        */
+        async function updateBankWithLocal(){
+            const value = await AsyncStorage.getItem('bank');
+            setBank(parseInt(value))
+        }
+
+        updateBankWithLocal();
+    }, [])
+
+    useEffect(() => {
+
+        function updateHistory(){
+            setHistory([
+                ...history, `Je suis à ${bank} €`
+            ])
+        }
+
+        /*
+            On ajout au AsyncStorage quand la valeur bank est modifiée
+        */
+        if(bank !== null){
+            try {
+                AsyncStorage.setItem('bank', bank.toString());
+            } catch(e){
+                console.log(e);
+            }
+        }
+
+        updateHistory();
+    }, [bank])
+
 
     function salaire(){
         let _new = bank;
@@ -35,6 +82,15 @@ export default function BankAccount(){
                 style={styles.button}>
                     <Text>Payer loyer</Text>
                 </TouchableOpacity>
+            </View>
+
+            <View>
+                {
+                    history.map((el) => {
+                        return <Text>{el}</Text>
+                    })
+                }
+                
             </View>
         </View>
     )

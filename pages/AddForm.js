@@ -3,13 +3,13 @@ import {View, Text, StyleSheet, ScrollView, TouchableOpacity} from 'react-native
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Input, Button } from 'react-native-elements';
 
-export default function AddForm(props){
+export default function AddForm({handleAdd}){
 
     const [title, setTitle] = useState('')
     const [desc, setDesc] = useState('')
 
     function validateAndSend(){
-        props.handleAdd(title, desc);
+        handleAdd(title, desc);
     }
 
     return (
