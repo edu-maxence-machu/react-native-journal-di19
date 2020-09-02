@@ -6,6 +6,7 @@ import BankAccount from './pages/BankAccount'
 import AddForm from './pages/AddForm'
 import Login from './pages/Login'
 import TutorialImage from './pages/TutorialImage';
+import GestionPage from './pages/GestionPage';
 
 export default function App() {
 
@@ -59,6 +60,8 @@ export default function App() {
       { page === 'AddForm' && <AddForm handleAdd={addToJournal}/>}
 
       { page === 'Tutorial' && <TutorialImage/>}
+
+      { page === 'GestionPage' && <GestionPage/>}
       
       <View style={styles.topMenu}>
         <Button 
