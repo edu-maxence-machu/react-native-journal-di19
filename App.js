@@ -9,7 +9,7 @@ import MesComptes from './pages/MesComptes';
 export default function App() {
 
 
-  const [navigation, setNavigation] = useState('Login')
+  const [navigation, setNavigation] = useState('Journal')
 
   const dataJournal = [
     {
