@@ -1,14 +1,15 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native'
 import { StatusBar } from 'expo-status-bar';
+import {Header} from 'react-native-elements';
 
-export default function Header(props){
+export default function MyHeader({title}){
 
     return (
-        <View style={styles.header}>
-            <StatusBar style="auto" />
-            <Text style={styles.headerText}>{props.title}</Text>
-        </View>
+        <Header
+            centerComponent={{ text: title, style: { color: '#fff' } }}
+            rightComponent={{ icon: 'account-circle', color: '#fff' }}
+        />
     )
 }
 

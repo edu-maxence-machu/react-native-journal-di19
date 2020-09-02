@@ -1,23 +1,12 @@
 import React from 'react';
-import {View, Text, StyleSheet, ScrollView, TouchableOpacity} from 'react-native'
+import {View, Text, StyleSheet, ScrollView} from 'react-native'
 import PreviewNote from '../components/PreviewNote'
+import {SearchBar, Button} from 'react-native-elements'
 
-export default function Journal({data}){
+export default function Journal({data, navigate}){
 
-    return( 
+    return(
         <View style={{flex: 1}}>
-            <View style={{height: 50}}>
-                <ScrollView horizontal={true} style={styles.scrollHorizontal}>
-                    <Text style={styles.scrollText}>Maison</Text>
-                    <Text style={styles.scrollText}>Travail</Text>
-                    <Text style={styles.scrollText}>Amis</Text>
-                    <Text style={styles.scrollText}>Famille</Text>
-                </ScrollView>
-            </View>
-
-            <View style={styles.countContainer}>
-                <Text>{data.length} notes dans mon journal</Text>
-            </View>
 
             <ScrollView style={styles.noteContainer}>
                 {
@@ -27,23 +16,17 @@ export default function Journal({data}){
                 }
             </ScrollView>
 
-            <TouchableOpacity>
-                <View style={styles.button}>
-                    <Text>Ajouter une note</Text>
-                </View>
-            </TouchableOpacity>
+            <View>
+              <Button
+                title="Ajouter une entrée"
+                onPress={() => navigate('AddForm')}
+                />
+            </View>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
-    button: {
-        width: '100%',
-        padding: 20,
-        backgroundColor: 'grey',
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
     countContainer: {
         paddingVertical: 10,
         paddingHorizontal: 15,
